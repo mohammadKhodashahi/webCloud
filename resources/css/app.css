@@ -1,0 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.panel-body h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 50px;
+}
+
+body {
+    background: #f2f2f2;
+}
+
+.section {
+    padding: 50px;
+    background: #fff;
+}
+.py-12{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

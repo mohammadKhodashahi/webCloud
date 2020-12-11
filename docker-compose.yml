@@ -1,0 +1,54 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: sammy
+        uid: 1000
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    image: travellist
+    container_name: real-digital-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+      - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+
+    networks:
+      - real-digital-network
+  db:
+    image: mysql:5.7
+    container_name: real-digital-db
+    restart: unless-stopped
+    hostname: localhost
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: 12341234
+      MYSQL_PASSWORD: 1234
+      MYSQL_USER: realdigital
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - "./docker/data/db:/var/lib/mysql"
+    networks:
+      - real-digital-network
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: real-digital-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      - real-digital-network
+
+
+networks:
+  real-digital-network:
+    driver: bridge
+
