@@ -26,7 +26,7 @@ services:
       MYSQL_DATABASE: test
       MYSQL_ROOT_PASSWORD: 12341234
       MYSQL_PASSWORD: 1234
-      MYSQL_USER: realdigital
+      MYSQL_USER: test
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     ports:
