@@ -28,8 +28,8 @@ Route::group([
 
     $router->get('/download/file/{id}', [FileUploadController::class, 'fileDownload'])->name('file.download');
 
-    $router->delete('/api/file/{id}',[File::class,'delete'])->name('api.file');
-    $router->put('/api/file/{id}',[File::class,'update'])->name('api.file');
+    $router->delete('/api/file/{id}',[File::class,'delete'])->name('api.file.delete');
+    $router->put('/api/file/{id}',[File::class,'update'])->name('api.file.update');
 });
 
 
