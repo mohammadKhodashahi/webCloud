@@ -78,7 +78,7 @@
             "npm run production",
             "@webcloud:db:refresh:prod"
         ],
-        "comemit:db:refresh:prod": [
+        "webcloud:db:refresh:prod": [
             "php artisan migrate:refresh --seed"
         ],
         "webcloud:make:env":[
