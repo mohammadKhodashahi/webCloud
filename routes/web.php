@@ -15,10 +15,10 @@ use App\Http\Controllers\FileUploadController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', ['middleware' =>'guest', function(){
+    return view('auth.login');
+}]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group([
     'middleware' => ['auth:sanctum', 'verified'],
